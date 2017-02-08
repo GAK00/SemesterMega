@@ -4,7 +4,7 @@
  *  Created on: Feb 6, 2017
  *      Author: gkun9931
  */
-
+#include <cstddef>
 #include "IntNode.hpp"
 
 IntNode::IntNode()

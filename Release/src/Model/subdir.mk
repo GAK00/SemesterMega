@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/Model/IntNode.cpp 
+../src/Model/IntNode.cpp \
+../src/Model/IntNodeArray.cpp 
 
 OBJS += \
-./src/Model/IntNode.o 
+./src/Model/IntNode.o \
+./src/Model/IntNodeArray.o 
 
 CPP_DEPS += \
-./src/Model/IntNode.d 
+./src/Model/IntNode.d \
+./src/Model/IntNodeArray.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

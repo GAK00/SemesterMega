@@ -14,7 +14,9 @@ private:
     IntNode* head;
     int size;
 public:
+    //constructors
     IntNodeArray(int bigness);
+    //methods
     int getSize();
     int getFromIndex(int index);
     void setAtIndex(int index, int value );

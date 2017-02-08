@@ -5,6 +5,8 @@
  *      Author: gkun9931
  */
 
-
-
+int main()
+    {
+    return 0;
+    }
 

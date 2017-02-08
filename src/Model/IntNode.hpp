@@ -28,3 +28,4 @@ public:
 
 
 #endif /* SEMESTERMEGA_MODEL_INTNODE_HPP_ */
+

@@ -7,9 +7,14 @@
 
 #ifndef SEMESTERMEGA_CONTROLLER_CONTROLLER_HPP_
 #define SEMESTERMEGA_CONTROLLER_CONTROLLER_HPP_
+#include "../model/Node.hpp"
+#include<string>
+using namespace std;
 class Controller
     {
 private:
+    Node<string> stringNode;
+    Node<int> intNode;
     void testIntArray();
 public:
     Controller();

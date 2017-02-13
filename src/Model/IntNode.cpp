@@ -12,6 +12,7 @@ IntNode::IntNode()
     this->nodeData = -999;
     this->nodePointer = nullptr;
     }
+
 IntNode::IntNode(int data)
     {
     this->nodeData = data;

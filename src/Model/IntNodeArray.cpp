@@ -21,9 +21,13 @@ IntNodeArray::IntNodeArray(int size)
 	}
 
     }
+int IntNodeArray::getSize()
+    {
+    return size;
+    }
 int IntNodeArray::getFromIndex(int index)
     {
-    assert(index >= 0&&index<=size);
+    assert(index >= 0 && index <= size);
     int value = 0;
     IntNode * current = head;
     for (int position = 0; position < index; position++)
@@ -36,7 +40,7 @@ int IntNodeArray::getFromIndex(int index)
 
 void IntNodeArray::setAtIndex(int index, int value)
     {
-    assert(index >= 0&&index<=size);
+    assert(index >= 0 && index <= size);
     IntNode * current = head;
     for (int position = 0; position < index; position++)
 	{

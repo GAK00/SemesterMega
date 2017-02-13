@@ -7,10 +7,14 @@
 #include "Controller.hpp"
 #include <iostream>
 #include "../Model/IntNodeArray.hpp"
+#include "../Model/Node.hpp"
 using namespace std;
 
 Controller::Controller()
     {
+
+    stringNode = Node<string>("Derpy");
+    intNode = Node<int>(42);
     }
 void Controller::testIntArray()
     {
@@ -20,10 +24,11 @@ void Controller::testIntArray()
 	{
 	temp.setAtIndex(spot, spot*5);
 	}
-    for (int spot = 0; spot < 101; spot++)
+    for (int spot = 0; spot < temp.getSize(); spot++)
 	{
 	cout << temp.getFromIndex(spot) << " is at " << spot << endl;
 	}
+    cout<<intNode.getNodeData()<<stringNode.getNodeData()<<endl;
     }
 void Controller::start()
     {

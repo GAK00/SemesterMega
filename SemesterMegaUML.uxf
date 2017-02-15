@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
-      <y>576</y>
+      <x>808</x>
+      <y>608</y>
       <w>184</w>
       <h>120</h>
     </coordinates>
@@ -25,7 +25,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>992</x>
-      <y>352</y>
+      <y>400</y>
       <w>232</w>
       <h>120</h>
     </coordinates>
@@ -46,7 +46,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>784</x>
-      <y>352</y>
+      <y>400</y>
       <w>208</w>
       <h>176</h>
     </coordinates>
@@ -73,20 +73,20 @@ bg=pink</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>784</x>
-      <y>296</y>
+      <y>344</y>
       <w>112</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>Created by
 Geran Kunz
-bg=blue</panel_attributes>
+bg=dark_gray</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1760</x>
-      <y>296</y>
+      <y>344</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -97,20 +97,21 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>872</x>
-      <y>520</y>
-      <w>24</w>
-      <h>72</h>
+      <y>568</y>
+      <w>48</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>30.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>512</x>
+      <x>992</x>
       <y>520</y>
-      <w>80</w>
-      <h>24</h>
+      <w>288</w>
+      <h>208</h>
     </coordinates>
     <panel_attributes>Node&lt;Type&gt;
 --
@@ -125,7 +126,40 @@ Methods
 +getNodeData() : Type
 +GetNodePointer() Node&lt;Type&gt; *
 +setNodeData(Typ e value): void
-+setNodePointer(Node&lt;Type&gt;*): void</panel_attributes>
++setNodePointer(Node&lt;Type&gt;*): void
+bg=red</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>224</y>
+      <w>328</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>Array&lt;Type&gt;
+--
+-front : Node&lt;Type&gt; *
+-size : int
+--
++Array&lt;Type&gt;(int size) : constructor
++getSize():int
++getFromIndex(int index) : Type
++setAtIndex(int index, Type value):void
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>520</y>
+      <w>648</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0;790.0;260.0</additional_attributes>
   </element>
 </diagram>

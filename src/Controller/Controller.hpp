@@ -13,8 +13,6 @@ using namespace std;
 class Controller
     {
 private:
-    Node<string> stringNode;
-    Node<int> intNode;
     void testIntArray();
 public:
     Controller();

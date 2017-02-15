@@ -56,4 +56,14 @@ Node<Type> * Node<Type>::getNodePointer()
     {
     return nodePointer;
     }
+template<class Type>
+void Node<Type>:: setNodeData(Type value)
+    {
+    nodeData = value;
+    }
+template<class Type>
+void Node<Type>::setNodePointer(Node<Type> * nextPointer)
+    {
+    this->nodePointer=nextPointer;
+    }
 #endif /* MODEL_NODE_HPP_ */

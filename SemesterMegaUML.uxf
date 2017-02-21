@@ -133,8 +133,8 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
-      <y>160</y>
+      <x>230</x>
+      <y>330</y>
       <w>410</w>
       <h>380</h>
     </coordinates>
@@ -156,13 +156,40 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>530</y>
-      <w>820</w>
-      <h>290</h>
+      <x>380</x>
+      <y>700</y>
+      <w>810</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1..n</panel_attributes>
-    <additional_attributes>10.0;10.0;20.0;260.0;800.0;260.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;790.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>40</y>
+      <w>410</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>Model::List&lt;Type&gt;
+-
+-size : int
+-front : Node&lt;Type&gt;*
+-
++List&lt;Type&gt;(): constructor
++List&lt;Type&gt;(contList&lt;Type&gt; &amp;source):copy construtor
++~List &lt;Type&gt;():destructor
+
++ addAtIndex(int index, Type value): void
++ add(Type value): void
++ remove(int index):Type
++ setAtIndex(int index, Type data):Type
++ getFromINdex(int index): Type
++ contaion(Type data) : bool
++ getSize() const : int
++ getFront()cost: Node&lt;Type&gt;*</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

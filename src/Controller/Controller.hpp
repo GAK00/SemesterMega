@@ -14,7 +14,8 @@ using namespace std;
 class Controller
     {
 private:
-    void testIntArray();
+    void testArray();
+    void testAdvancedFeatures();
     Array<string> temp;
 public:
     Controller();

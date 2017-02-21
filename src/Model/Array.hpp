@@ -29,8 +29,6 @@ public:
     Node<Type> * getFront() const;
     Type getFromIndex(int index);
     void setAtIndex(int index, Type value);
-    //Assignement Operator
-    void operator =(const Array<Type> & toBeAssigned);
     };
 //cpp portion
 using namespace std;
@@ -58,21 +56,22 @@ Array<Type>::Array(int size)
 template<class Type>
 Array<Type>::~Array()
     {
-    int count = size;
+    //int count = size;
     Node<Type> * remove = front;
     while (front != nullptr)
 	{
 	//move to next node
 	front = front->getNodePointer();
-	cout << "moving to the next node. At: " << count << endl;
+	//cout << "moving to the next node. At: " << count << endl;
 	//deletethe front pointer
 	delete remove;
-	cout << "deleting the old front pointer." << endl;
+	//cout << "deleting the old front pointer." << endl;
 	remove = front;
-	cout << "Moving to new front pointer." << endl;
-	count--;
-	cout << "Front is at: " << front << "count is :" << count << endl;
+	//cout << "Moving to new front pointer." << endl;
+	//count--;
+	//cout << "Front is at: " << front << "count is :" << count << endl;
 	}
+    cout<<"deleted"<<endl;
     }
 //copy constructor
 template<class Type>
@@ -94,6 +93,7 @@ Array<Type>::Array(const Array<Type> & toBeCopied)
 	updated = updated->getNodePointer();
 	copyTemp = copyTemp->getNodePointer();
 	}
+    cout<<"Copied"<<endl;
     }
 template<class Type>
 int Array<Type>::getSize() const

@@ -18,11 +18,18 @@ private:
     int size;
 public:
     Array<Type>(int size);
+    Array<Type>();
     int getSize();
     Type getFromIndex(int index);
     void setAtIndex(int index, Type value);
     };
-
+//cpp portion
+template<class Type>
+Array<Type> :: Array()
+    {
+    size = 0;
+    front = nullptr;
+    }
 template<class Type>
 Array<Type>::Array(int size)
     {

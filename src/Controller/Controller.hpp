@@ -8,12 +8,14 @@
 #ifndef SEMESTERMEGA_CONTROLLER_CONTROLLER_HPP_
 #define SEMESTERMEGA_CONTROLLER_CONTROLLER_HPP_
 #include "../model/Node.hpp"
+#include "../model/Array.hpp"
 #include<string>
 using namespace std;
 class Controller
     {
 private:
     void testIntArray();
+    Array<string> temp;
 public:
     Controller();
     void start();

@@ -13,29 +13,29 @@ using namespace std;
 
 Controller::Controller()
     {
-    temp = Array<string>(1);
+   // temp = Array<string>(1);
     }
 void Controller::testIntArray()
     {
-    cout << "Creating an NodeArray" << endl;
-    temp = Array<string>(1000001);
-    cout<<"populating NodeArray"<<endl;
-    for (int spot = 0; spot < temp.getSize(); spot++)
-	{
-	if((spot%1000)==0)
-	    {
-	    cout<<"at spot"<<spot<<endl;
-	    }
-	stringstream ss;
-	ss << "string No. "<< spot;
-	string str = ss.str();
-	temp.setAtIndex(spot, str);
-	}
-    cout<<"printing NodeArray"<<endl;
-    for (int spot = 0; spot < temp.getSize(); spot++)
-	{
-	cout << temp.getFromIndex(spot) << " is at " << spot << endl;
-	}
+//    cout << "Creating an NodeArray" << endl;
+//    temp = Array<string>(1000001);
+//    cout<<"populating NodeArray"<<endl;
+//    for (int spot = 0; spot < temp.getSize(); spot++)
+//	{
+//	if((spot%1000)==0)
+//	    {
+//	    cout<<"at spot"<<spot<<endl;
+//	    }
+//	stringstream ss;
+//	ss << "string No. "<< spot;
+//	string str = ss.str();
+//	temp.setAtIndex(spot, str);
+//	}
+//    cout<<"printing NodeArray"<<endl;
+//    for (int spot = 0; spot < temp.getSize(); spot++)
+//	{
+//	cout << temp.getFromIndex(spot) << " is at " << spot << endl;
+//	}
     }
 void Controller::start()
     {

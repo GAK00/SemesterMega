@@ -16,6 +16,7 @@ class Controller
 private:
     void testArray();
     void testAdvancedFeatures();
+    void testList();
     Array<string> temp;
 public:
     Controller();

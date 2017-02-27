@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 #include "../Model/Timer.hpp"
-#include "../Model/Array.hpp"
+#include "../Model/List.hpp"
 using namespace std;
 
 Controller::Controller()
@@ -65,23 +65,43 @@ void Controller::testAdvancedFeatures()
     cout << word.getFromIndex(3) << " Should be different than "
 	    << copiedWords.getFromIndex(3) << endl;
     }
+void Controller::testList()
+    {
+    cout << "start" << endl;
+    List<int> list = List<int>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.remove(1);
+    list.addAtIndex(1, 5);
+    list.setAtIndex(2, 2);
+    list.addFront(22);\
+    for (int index = 0; index < list.getSize(); index++)
+	{
+	cout << list.getFromIndex(index) << endl;
+	}
+    cout<<list.getSize()<<endl;
+    cout << "end" << endl;
+
+    }
 void Controller::start()
     {
-    Timer timer = Timer();
-    cout << "Going to test the Advanced features" << endl;
-    timer.startTimer();
-    testAdvancedFeatures();
-
-    cout << "Finished AdvancedFeatur testing in" << endl;
-    timer.stopTimer();
-    timer.displayTimerInformation();
-    timer.resetTimer();
-    cout << "Going to test the NodeArray" << endl;
-    timer.startTimer();
-    testArray();
-    timer.stopTimer();
-    timer.displayTimerInformation();
-    cout << "Finished ArrayNode testing in" << endl;
-    timer.displayTimerInformation();
+//Timer timer = Timer();
+//cout << "Going to test the Advanced features" << endl;
+//timer.startTimer();
+//testAdvancedFeatures();
+//
+//cout << "Finished AdvancedFeatur testing in" << endl;
+//timer.stopTimer();
+//timer.displayTimerInformation();
+//timer.resetTimer();
+//cout << "Going to test the NodeArray" << endl;
+//timer.startTimer();
+//testArray();
+//timer.stopTimer();
+//timer.displayTimerInformation();
+//cout << "Finished ArrayNode testing in" << endl;
+//timer.displayTimerInformation();
+    testList();
     }
 

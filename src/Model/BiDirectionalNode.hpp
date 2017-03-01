@@ -12,8 +12,6 @@ template<class Type>
 class BiDirectionalNode: public Node<Type>
     {
 private:
-    Type data;
-    BiDirectionalNode<Type> * nextPointer;
     biDirectionalNode<Type> * prevPointer;
 public:
     BiDirectionalNode();
@@ -32,19 +30,27 @@ public:
 template<class Type>
 BiDirectionalNode<Type> :: BiDirectionalNode() : Node()
     {
-    data = nullptr;
-    nextPointer = nullptr;
     prevPointer = nullptr;
     }
 template<class Type>
 BiDirectionalNode<Type> :: BiDirectionalNode(Type data) : Node(data)
     {
 
+	prevPointer = nullptr;
     }
 template<class Type>
-BiDirectionalNode<Type> :: BiDirectionalNode(Type data, BiDirectioinalNode<Type>* previous,BiDirectioninalNode<Type> *next) : Node(data,nextPointer)
+BiDirectionalNode<Type> :: BiDirectionalNode(Type data,BiDirectionalNode<Type> * previous,BiDirectionalNode<Type> * next) : Node(data, next)
     {
-
+    this->prevPointer = prevPointer;
     }
-
+template<class Type>
+Type BiDirectionalNode<Type> ::getNodeData() : Node<Type>::getNodeData()
+    {
+    return Node<Type>::getNodeData();
+    }
+template<class Type>
+BiDirectionalNode<Type> * BiDirectionalNode<Type> :: getNextPointer() : Node<Type>::getNodePointer()
+    {
+	return Node<Type>::getNodePointer();
+    }
 #endif /* MODEL_BIDIRECTIONALNODE_HPP_ */

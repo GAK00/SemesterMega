@@ -1,0 +1,31 @@
+/*
+ * Stack
+ *
+ *  Created on: Mar 1, 2017
+ *      Author: gkun9931
+ */
+
+#ifndef MODEL_STACK_
+#define MODEL_STACK_
+
+template<class Type>
+class Stack : DoubleList<Type>
+{
+private:
+public:
+    Stack();
+    void add(Type value);
+};
+
+/*
+ the add method only adds to the end
+ */
+template <class Type>
+void Stack<Type> :: add(Type value) : DoubleList<Type> :: add(value)
+    {
+
+    }
+
+
+
+#endif /* MODEL_STACK_ */

@@ -7,7 +7,7 @@
 
 #ifndef MODEL_DOUBLELIST_HPP_
 #define MODEL_DOUBLELIST_HPP_
-
+#include "BiDirectionalNode.hpp"
 template<class Type>
 class DoubleList
     {

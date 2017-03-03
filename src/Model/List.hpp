@@ -52,7 +52,7 @@ List<Type>::List(const List<Type> & source)
     for(int index = 1; index< size; index++)
 	{
 	Node<Type> * temp = new Node<Type>();
-	temp->setNodePointer(front);
+	temp->setNextPointer(front);
 	front = temp;
 	}
     Node<Type> * copyTemp = source.getFront();
@@ -60,8 +60,8 @@ List<Type>::List(const List<Type> & source)
     for(int index = 0; index < size; index++)
 	{
 	updated -> setNodeData(copyTemp->getNodeData());
-	updated = updated->getNodePointer();
-	copyTemp = copyTemp->getNodePointer();
+	updated = updated->getNextPointer();
+	copyTemp = copyTemp->getNextPointer();
 	}
     this -> end = updated;
     }
@@ -71,7 +71,7 @@ List<Type>::~List()
     Node<Type> * destruction = front;
     while(front != nullptr)
 	{
-	front = front->getNodePointer();
+	front = front->getNextPointer();
 	delete destruction;
 	destruction = front;
 	}
@@ -95,10 +95,10 @@ void List<Type>::addAtIndex(int index, Type value)
 	Node<Type> * current = front;
 	for (int currentIndex = 0; currentIndex < index - 1; currentIndex++)
 	    {
-	    current = current->getNodePointer();
+	    current = current->getNextPointer();
 	    }
-	insertedNode->setNodePointer(current->getNodePointer());
-	current->setNodePointer(insertedNode);
+	insertedNode->setNextPointer(current->getNextPointer());
+	current->setNextPointer(insertedNode);
 	size++;
 	}
 
@@ -115,7 +115,7 @@ void List<Type>::add(Type value)
     else
 	{
 	Node<Type> * newEnd = new Node<Type>(value);
-	this->end->setNodePointer(newEnd);
+	this->end->setNextPointer(newEnd);
 	this->end = newEnd;
 	}
     size++;
@@ -149,14 +149,14 @@ Type List<Type>::remove(int index)
 	//if there is no previous the removed node has to be the front
 	toRemove = front;
 	//checking to make sure that this is not also the end node and handling accordingly
-	if (toRemove->getNodePointer() == nullptr)
+	if (toRemove->getNextPointer() == nullptr)
 	    {
 	    front = nullptr;
 	    end = nullptr;
 	    }
 	else
 	    {
-	    front = toRemove->getNodePointer();
+	    front = toRemove->getNextPointer();
 	    }
 	}
 
@@ -167,14 +167,14 @@ Type List<Type>::remove(int index)
 	//getting previous node
 	for (int currentIndex = 0; currentIndex < index - 1; currentIndex++)
 	    {
-	    previous = previous->getNodePointer();
+	    previous = previous->getNextPointer();
 	    }
 	//setting the node to be removed
-	toRemove = previous->getNodePointer();
+	toRemove = previous->getNextPointer();
 	//setting previous to point past the soon to be removed node
-	previous->setNodePointer(previous->getNodePointer()->getNodePointer());
+	previous->setNextPointer(previous->getNextPointer()->getNextPointer());
 	//Checking to see if previous is now end
-	if (previous->getNodePointer() == nullptr)
+	if (previous->getNextPointer() == nullptr)
 	    {
 	    this->end = previous;
 	    }
@@ -191,7 +191,7 @@ Type List<Type>::setAtIndex(int index, Type value)
     Node<Type> * current = front;
     for (int currentIndex = 0; currentIndex < index; currentIndex++)
 	{
-	current = current->getNodePointer();
+	current = current->getNextPointer();
 	}
     Type data  = current->getNodeData();
     current->setNodeData(value);
@@ -205,7 +205,7 @@ Type List<Type>::getFromIndex(int index)
     Node<Type> * current = front;
     for (int currentIndex = 0; currentIndex < index; currentIndex++)
 	{
-	current = current->getNodePointer();
+	current = current->getNextPointer();
 	}
     data = current->getNodeData();
     return data;
@@ -222,7 +222,7 @@ bool List<Type>::contains(Type value)
 
     for(int index = 0; index<size; index++)
 	{
-	current = current->getNodePointer;
+	current = current->getNextPointer;
 	if(current->getNodeData() == value)
 	    {
 	    valueContained = true;

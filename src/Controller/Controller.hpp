@@ -17,7 +17,7 @@ private:
     void testArray();
     void testAdvancedFeatures();
     void testList();
-    Array<string> temp;
+    void test();
 public:
     Controller();
     void start();

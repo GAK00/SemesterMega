@@ -48,7 +48,7 @@ Array<Type>::Array(int size)
     for (int index = 0; index < size; index++)
 	{
 	Node<Type> * currentNode = new Node<Type>();
-	currentNode->setNodePointer(front);
+	currentNode->setNextPointer(front);
 	front = currentNode;
 	}
     }
@@ -61,7 +61,7 @@ Array<Type>::~Array()
     while (front != nullptr)
 	{
 	//move to next node
-	front = front->getNodePointer();
+	front = front->getNextPointer();
 	//cout << "moving to the next node. At: " << count << endl;
 	//deletethe front pointer
 	delete remove;
@@ -79,21 +79,21 @@ Array<Type>::Array(const Array<Type> & toBeCopied)
     {
     this->size = toBeCopied.getSize();
     this->front = new Node<Type>();
-    for(int index = 1; index< size; index++)
+    for (int index = 1; index < size; index++)
 	{
 	Node<Type> * temp = new Node<Type>();
-	temp->setNodePointer(front);
+	temp->setNextPointer(front);
 	front = temp;
 	}
     Node<Type> * copyTemp = toBeCopied.getFront();
     Node<Type> * updated = this->front;
-    for(int index = 0; index < size; index++)
+    for (int index = 0; index < size; index++)
 	{
-	updated -> setNodeData(copyTemp->getNodeData());
-	updated = updated->getNodePointer();
-	copyTemp = copyTemp->getNodePointer();
+	updated->setNodeData(copyTemp->getNodeData());
+	updated = updated->getNextPointer();
+	copyTemp = copyTemp->getNextPointer();
 	}
-    cout<<"Copied"<<endl;
+    cout << "Copied" << endl;
     }
 template<class Type>
 int Array<Type>::getSize() const
@@ -112,7 +112,7 @@ Type Array<Type>::getFromIndex(int index)
     Node<Type> * currentPos = front;
     for (int currentIndex = 0; currentIndex < index; currentIndex++)
 	{
-	currentPos = currentPos->getNodePointer();
+	currentPos = currentPos->getNextPointer();
 	}
     return currentPos->getNodeData();
     }
@@ -123,7 +123,7 @@ void Array<Type>::setAtIndex(int index, Type value)
     Node<Type>*currentPos = front;
     for (int currentIndex = 0; currentIndex < index; currentIndex++)
 	{
-	currentPos = currentPos->getNodePointer();
+	currentPos = currentPos->getNextPointer();
 	}
     currentPos->setNodeData(value);
     }

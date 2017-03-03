@@ -10,6 +10,7 @@
 #include <sstream>
 #include "../Model/Timer.hpp"
 #include "../Model/List.hpp"
+#include"../Model/BiDirectionalNode.hpp"
 using namespace std;
 
 Controller::Controller()
@@ -80,12 +81,17 @@ void Controller::testList()
 	{
 	cout << list.getFromIndex(index) << endl;
 	}
-    cout<<list.getSize()<<endl;
+    cout << list.getSize() << endl;
     cout << "end" << endl;
 
     }
-void Controller::start()
+void Controller::test()
     {
+    BiDirectionalNode<int> * test = new BiDirectionalNode<int>(1);
+    cout<<test->getNodeData();
+}
+void Controller::start()
+{
 //Timer timer = Timer();
 //cout << "Going to test the Advanced features" << endl;
 //timer.startTimer();
@@ -102,6 +108,7 @@ void Controller::start()
 //timer.displayTimerInformation();
 //cout << "Finished ArrayNode testing in" << endl;
 //timer.displayTimerInformation();
-    testList();
-    }
+//testList();
+    test();
+}
 

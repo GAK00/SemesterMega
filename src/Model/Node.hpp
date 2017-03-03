@@ -13,15 +13,15 @@ class Node
     {
 private:
     Type nodeData;
-    Node<Type>* nodePointer;
+    Node<Type>* nextPointer;
 public:
     Node<Type>();
     Node<Type>(Type data);
     Node<Type>(Type data, Node<Type> * nextPointer);
     Type getNodeData();
-    Node<Type> * getNodePointer();
+    Node<Type> * getNextPointer();
     void setNodeData(Type value);
-    void setNodePointer(Node<Type>* nexPointer);
+    void setNextPointer(Node<Type>* nexPointer);
     };
 
 
@@ -31,20 +31,20 @@ public:
 template<class Type>
 Node<Type> :: Node()
     {
-    nodePointer = nullptr;
+    nextPointer = nullptr;
     //node data not initialized because of unknown type
     }
 template<class Type>
 Node<Type>::Node(Type data)
     {
     nodeData = data;
-    nodePointer = nullptr;
+    nextPointer = nullptr;
     }
 template<class Type>
 Node<Type>::Node(Type data, Node<Type>* pointer)
     {
     nodeData = data;
-    nodePointer = pointer;
+    nextPointer = pointer;
     }
 template<class Type>
 Type Node<Type>::getNodeData()
@@ -52,9 +52,9 @@ Type Node<Type>::getNodeData()
     return nodeData;
     }
 template<class Type>
-Node<Type> * Node<Type>::getNodePointer()
+Node<Type> * Node<Type>::getNextPointer()
     {
-    return nodePointer;
+    return nextPointer;
     }
 template<class Type>
 void Node<Type>:: setNodeData(Type value)
@@ -62,8 +62,8 @@ void Node<Type>:: setNodeData(Type value)
     nodeData = value;
     }
 template<class Type>
-void Node<Type>::setNodePointer(Node<Type> * nextPointer)
+void Node<Type>::setNextPointer(Node<Type> * nextPointer)
     {
-    this->nodePointer=nextPointer;
+    this->nextPointer=nextPointer;
     }
 #endif /* MODEL_NODE_HPP_ */

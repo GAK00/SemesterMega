@@ -14,45 +14,45 @@ template<class Type>
 class BiDirectionalNode: public Node<Type>
     {
 private:
-    biDirectionalNode<Type> * prevPointer;
+    BiDirectionalNode<Type> * prevPointer;
 public:
     BiDirectionalNode();
     BiDirectionalNode(Type data);
     BiDirectionalNode(Type data, BiDirectionalNode<Type>*previous,
 	    BiDirectionalNode<Type> * next);
-    Type getNodeData();
-    BiDirectionalNode<Type> * getNextPointer();
     BiDirectionalNode<Type> * getPreviousPointer();
-    void setNodeData(Type data);
-    void setNextPointer(BiDirectionalNode<Type> * nextPointer);
     void setPreviousPointer(BiDirectionalNode<Type> * prevPointer);
     };
 
 //Implementation
 template<class Type>
-BiDirectionalNode<Type> :: BiDirectionalNode() : Node()
+BiDirectionalNode<Type>::BiDirectionalNode() :Node<Type>::
+	Node()
     {
     prevPointer = nullptr;
     }
 template<class Type>
-BiDirectionalNode<Type> :: BiDirectionalNode(Type data) : Node(data)
+BiDirectionalNode<Type>::BiDirectionalNode(Type data) :Node<Type>::
+	Node(data)
     {
 
-	prevPointer = nullptr;
+    prevPointer = nullptr;
     }
 template<class Type>
-BiDirectionalNode<Type> :: BiDirectionalNode(Type data,BiDirectionalNode<Type> * previous,BiDirectionalNode<Type> * next) : Node(data, next)
+BiDirectionalNode<Type>::BiDirectionalNode(Type data,
+	BiDirectionalNode<Type> * previous, BiDirectionalNode<Type> * next) :Node<Type>::
+	Node(data, next)
     {
     this->prevPointer = prevPointer;
     }
 template<class Type>
-Type BiDirectionalNode<Type> ::getNodeData() : Node<Type>::getNodeData()
+BiDirectionalNode<Type> * BiDirectionalNode<Type>::getPreviousPointer()
     {
-    return Node<Type>::getNodeData();
+    return prevPointer;
     }
 template<class Type>
-BiDirectionalNode<Type> * BiDirectionalNode<Type> :: getNextPointer() : Node<Type>::getNodePointer()
+void BiDirectionalNode<Type>::setPreviousPointer(BiDirectionalNode<Type> * prev)
     {
-	return Node<Type>::getNodePointer();
+    this->prevPointer = prev;
     }
 #endif /* MODEL_BIDIRECTIONALNODE_HPP_ */

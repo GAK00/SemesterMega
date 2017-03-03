@@ -7,7 +7,7 @@
 
 #ifndef MODEL_STACK_
 #define MODEL_STACK_
-
+#include "DoubleList.hpp"
 template<class Type>
 class Stack : DoubleList<Type>
 {

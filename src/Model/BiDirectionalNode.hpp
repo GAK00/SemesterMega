@@ -8,6 +8,8 @@
 #ifndef MODEL_BIDIRECTIONALNODE_HPP_
 #define MODEL_BIDIRECTIONALNODE_HPP_
 
+#include "Node.hpp"
+
 template<class Type>
 class BiDirectionalNode: public Node<Type>
     {

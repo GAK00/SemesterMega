@@ -50,3 +50,22 @@ int DoubleList<Type>::getSize() const
     return size;
     }
 #endif /* MODEL_DOUBLELIST_HPP_ */
+/*
+ * add(Type data)
+ * {
+ * if(size == 0)
+ * {
+ * front = new BiDirectionalNode<Type>(data)
+ * front.setNextPointer(front);
+ * front.setLastPointer(front);
+ * end = front;
+ * }
+ * else
+ * {
+ * BiDirectioinalNode * toAdd = newBiDirectionalNode(data,end,front);
+ * end.setNextPointer(toAdd)
+ * end = toAdd;
+ * front.setLastPointer(end);
+ * }
+ * }
+ */

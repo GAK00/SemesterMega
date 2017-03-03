@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include<cstddef>
 #include "../Model/Timer.hpp"
 #include "../Model/List.hpp"
 #include"../Model/BiDirectionalNode.hpp"
@@ -88,10 +89,14 @@ void Controller::testList()
 void Controller::test()
     {
     BiDirectionalNode<int> * test = new BiDirectionalNode<int>(1);
-    cout<<test->getNodeData();
-}
+    BiDirectionalNode<int> * test1 = new BiDirectionalNode<int>(2, test,
+	    nullptr);
+    test->setNextPointer(test1);
+    cout << test1->getPreviousPointer()->getNodeData()<<endl;
+    cout<< test->getNextPointer()->getNodeData()<<endl;
+    }
 void Controller::start()
-{
+    {
 //Timer timer = Timer();
 //cout << "Going to test the Advanced features" << endl;
 //timer.startTimer();
@@ -110,5 +115,5 @@ void Controller::start()
 //timer.displayTimerInformation();
 //testList();
     test();
-}
+    }
 

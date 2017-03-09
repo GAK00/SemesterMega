@@ -11,7 +11,9 @@
 #include<cstddef>
 #include "../Model/Timer.hpp"
 #include "../Model/List.hpp"
-#include"../Model/BiDirectionalNode.hpp"
+#include"../Model/Stack.hpp"
+#include"../Model/Queue.hpp"
+#include "../Model/FastList.hpp"
 using namespace std;
 
 Controller::Controller()
@@ -60,12 +62,10 @@ void Controller::testAdvancedFeatures()
     word.setAtIndex(3, "in the last spot");
     Array<string> copiedWords = Array<string>(word);
     cout << "These should match:" << endl;
-    cout << word.getFromIndex(0) << " should be the same as "
-	    << copiedWords.getFromIndex(0) << endl;
+    cout << word.getFromIndex(0) << " should be the same as " << copiedWords.getFromIndex(0) << endl;
     copiedWords.setAtIndex(3, "Changed the contents of the copied Array");
     cout << "These will not match" << endl;
-    cout << word.getFromIndex(3) << " Should be different than "
-	    << copiedWords.getFromIndex(3) << endl;
+    cout << word.getFromIndex(3) << " Should be different than " << copiedWords.getFromIndex(3) << endl;
     }
 void Controller::testList()
     {
@@ -86,14 +86,80 @@ void Controller::testList()
     cout << "end" << endl;
 
     }
-void Controller::test()
+void Controller::testListTiming()
     {
-    BiDirectionalNode<int> * test = new BiDirectionalNode<int>(1);
-    BiDirectionalNode<int> * test1 = new BiDirectionalNode<int>(2, test,
-	    nullptr);
-    test->setNextPointer(test1);
-    cout << test1->getPreviousPointer()->getNodeData()<<endl;
-    cout<< test->getNextPointer()->getNodeData()<<endl;
+    int listSize = 10000000;
+    int weight = 99;
+    int dataCollection = 500;
+    int masterLoop = 100;
+    double MavgSlow = 0;
+    double MavgFast = 0;
+    for (int Mindex = 0; Mindex < masterLoop; Mindex++)
+	{
+	FastList<int> timingList;
+	for (int index = 0; index < listSize; index++)
+	    {
+	    timingList.add(rand());
+	    }
+	long slowTime[dataCollection];
+	long fastTime[dataCollection];
+	double avgSlow = 0;
+	double avgFast = 0;
+	Timer fastTimer;
+	for (int index = 0; index < dataCollection; index++)
+	    {
+	    int randomIndex = (rand() % (listSize * (100-weight) / 100)) + (listSize * (weight)) / 100;
+	    fastTimer.startTimer();
+	    timingList.getFromIndex(randomIndex);
+	    fastTimer.stopTimer();
+	    slowTime[index] = fastTimer.getExecutionTimeInMiliSeconds();
+	    fastTimer.resetTimer();
+
+	    fastTimer.startTimer();
+	    timingList.getFromIndexFast(randomIndex);
+	    fastTimer.stopTimer();
+	    fastTime[index] = fastTimer.getExecutionTimeInMiliSeconds();
+	    fastTimer.resetTimer();
+	    avgSlow += slowTime[index];
+	    avgFast += fastTime[index];
+	    }
+	avgSlow = avgSlow / dataCollection;
+	avgFast = avgFast / dataCollection;
+	MavgSlow += avgSlow;
+	MavgFast += avgFast;
+	if (Mindex % 10 == 0)
+	    {
+	    cout << "The average speed for the slow method was: " << avgSlow << " microSeconds" << endl;
+	    cout << "The average speed for the fast method was: " << avgFast << " microseconds" << endl;
+	    cout << "A time savings of: " << avgSlow - avgFast << " microSeconds." << endl;
+	    cout << endl;
+	    }
+	}
+    for (int index = 0; index < 5; index++)
+	{
+	cout << endl;
+	}
+    MavgSlow = MavgSlow / masterLoop;
+    MavgFast = MavgFast / masterLoop;
+    cout << "final master slow avg was: " << MavgSlow << endl;
+    cout << "final master fast avg was: " << MavgFast << endl;
+    cout << "final master time savings was: " << MavgSlow - MavgFast << endl;
+    }
+void Controller::testStack()
+    {
+    Stack<int> stack;
+    for (int index = 0; index < 100; index++)
+	{
+	cout << index << endl;
+	cout << "size: " << stack.getSize() << endl;
+	stack.push(index);
+	}
+    for (int index = 0; index < 100; index++)
+	{
+	cout << "size: " << stack.getSize() << endl;
+	cout << stack.pop() << endl;
+	}
+    cout << "end" << endl;
     }
 void Controller::start()
     {
@@ -114,6 +180,7 @@ void Controller::start()
 //cout << "Finished ArrayNode testing in" << endl;
 //timer.displayTimerInformation();
 //testList();
-    test();
+    testListTiming();
+    //  testStack();
     }
 

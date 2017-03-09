@@ -17,7 +17,8 @@ private:
     void testArray();
     void testAdvancedFeatures();
     void testList();
-    void test();
+    void testListTiming();
+    void testStack();
 public:
     Controller();
     void start();

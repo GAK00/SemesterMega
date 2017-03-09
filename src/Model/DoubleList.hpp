@@ -17,37 +17,67 @@ private:
     int size;
 public:
     virtual void add(Type value) = 0;
-    virtual void remove(int index) = 0;
-    virtual DoubleList();
-    virtual ~DoubleList() = 0;
+    virtual Type remove(int index) = 0;
+    DoubleList();
+    virtual ~DoubleList();
+
     int getSize() const;
     BiDirectionalNode<Type> * getFront() const;
     BiDirectionalNode<Type> * getEnd() const;
-
+    void setFront(BiDirectionalNode<Type> * front);
+    void setSize(int updated);
+    void setEnd(BiDirectionalNode<Type> * end);
     };
 
-//cpp point
 template<class Type>
 DoubleList<Type>::DoubleList()
     {
-    size = 0;
-    front = nullptr;
-    end = nullptr;
+    this->size = 0;
+    this->front = nullptr;
+    this->end = nullptr;
     }
+
 template<class Type>
-BiDirectionalNode<Type> * DoubleList<Type>::getEnd() const
+DoubleList<Type>::~DoubleList()
     {
-    return end;
+    //Implemented only to avoid errors.
+    //Just like a Java interface method.
     }
-template<class Type>
-BiDirectionalNode<Type> * DoubleList<Type>::getFront() const
-    {
-    return front;
-    }
+
 template<class Type>
 int DoubleList<Type>::getSize() const
     {
-    return size;
+    return this->size;
+    }
+
+template<class Type>
+BiDirectionalNode<Type> * DoubleList<Type>::getFront() const
+    {
+    return this->front;
+    }
+
+template<class Type>
+BiDirectionalNode<Type> * DoubleList<Type>::getEnd() const
+    {
+    return this->end;
+    }
+
+template<class Type>
+void DoubleList<Type>::setSize(int size)
+    {
+    this->size = size;
+    }
+
+template<class Type>
+void DoubleList<Type>::setFront(BiDirectionalNode<Type> * front)
+    {
+    this->front = front;
+    }
+
+template<class Type>
+void DoubleList<Type>::setEnd(BiDirectionalNode<Type> * end)
+    {
+    this->end = end;
     }
 #endif /* MODEL_DOUBLELIST_HPP_ */
 /*

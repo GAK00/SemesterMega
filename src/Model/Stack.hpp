@@ -10,7 +10,7 @@
 #include "DoubleList.hpp"
 #include <cstddef>
 template<class Type>
-class Stack: DoubleList<Type>
+class Stack: public DoubleList<Type>
     {
 private:
 public:
@@ -26,26 +26,88 @@ public:
 /*
  the add method only adds to the end
  */
+using namespace std;
+#include <ioStream>
+template<class Type>
+Stack<Type>::Stack()
+    {
+
+    }
+template<class Type>
+Stack<Type>::~Stack()
+    {
+    BiDirectionalNode<Type> * remove = this->getFront();
+    while (this->getFront() != nullptr)
+	{
+	this->setFront(this->getFront()->getNextPointer());
+	delete remove;
+	remove = this->getFront();
+	}
+    }
 template<class Type>
 void Stack<Type>::add(Type value)
     {
-    push(valueToAdd);
+    push(value);
     }
 template<class Type>
 void Stack<Type>::push(Type value)
     {
-    if (size == 0||this->front==nullptr||this->end == nullptr)
+    if (this->getSize() == 0 || this->getFront() == nullptr
+	    || this->getEnd() == nullptr)
 	{
-	front = new BiDirectionalNode(value);
-	end = front;
+	BiDirectionalNode<Type> *newNode = new BiDirectionalNode<Type>(value);
+	this->setFront(newNode);
+	this->setEnd(newNode);
 	}
     else
 	{
-	BiDirectionalNode * toAdd = new BiDirectionalNode(value, nullptr, end);
-	end->setNextPointer(toAdd);
-	end = toAdd;
+	cout<<this->getFront()<<endl;
+	BiDirectionalNode<Type> * toAdd = new BiDirectionalNode<Type>(value,
+		this->getEnd(), nullptr);
+	this->getEnd()->setNextPointer(toAdd);
+	this->setEnd(toAdd);
 	}
-    size++;
+    this->setSize(this->getSize() + 1);
+    }
+
+template<class Type>
+Type Stack<Type>::remove(int index)
+    {
+    assert(index == this->getSize() - 1 && this->getSize() > 0);
+    return pop();
+    }
+template<class Type>
+Type Stack<Type>::pop()
+    {
+    assert(this->getSize() > 0);
+    Type removedValue;
+    BiDirectionalNode<Type> * toDelete;
+    if (this->getSize() == 1)
+	{
+	removedValue = this->getEnd()->getNodeData();
+	toDelete = this->getEnd();
+	delete toDelete;
+	this->setFront(nullptr);
+	this->setEnd(nullptr);
+	}
+    else
+	{
+	removedValue = this->getEnd()->getNodeData();
+	toDelete = this->getEnd();
+	this->getEnd()->getPreviousPointer()->setNextPointer(nullptr);
+	this->setEnd(this->getEnd()->getPreviousPointer());
+	delete toDelete;
+	}
+
+    this->setSize(this->getSize() - 1);
+    return removedValue;
+
+    }
+template<class Type>
+Type Stack<Type>::peek()
+    {
+    assert(this->getSize() > 0);
+    return this->getEnd()->getNodeData();
     }
 
 #endif /* MODEL_STACK_ */

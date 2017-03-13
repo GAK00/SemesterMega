@@ -14,6 +14,7 @@
 #include"../Model/Stack.hpp"
 #include"../Model/Queue.hpp"
 #include "../Model/FastList.hpp"
+#include "../Model/Meme.hpp"
 using namespace std;
 
 Controller::Controller()
@@ -145,7 +146,7 @@ void Controller::testListTiming()
     cout << "final master fast avg was: " << MavgFast << endl;
     cout << "final master time savings was: " << MavgSlow - MavgFast << endl;
     }
-void Controller::testStack()
+void Controller::testNumberStack()
     {
     Stack<int> stack;
     for (int index = 0; index < 100; index++)
@@ -161,6 +162,25 @@ void Controller::testStack()
 	}
     cout << "end" << endl;
     }
+void Controller::testMemeQueue()
+    {
+    Meme firstMeme("doggo");
+    Queue<Meme> memeQueue;
+    cout<<"queueing " <<firstMeme.getTitle()<<endl;
+    memeQueue.add(firstMeme);
+    Meme secondMeme("doggo on fire");
+    secondMeme.setDankness(9001);
+    cout<<"queueing " <<secondMeme.getTitle()<<endl;
+    memeQueue.enqueue(secondMeme);
+    cout<<"reading queue"<<endl;
+    int size = memeQueue.getSize();
+    for(int index = 0; index<size; index++)
+	{
+	Meme meme = memeQueue.dequeue();
+	cout<< meme.getTitle() <<" dankness level " << meme.getDankness()<<endl;
+	}
+    }
+
 void Controller::start()
     {
 //Timer timer = Timer();
@@ -180,7 +200,8 @@ void Controller::start()
 //cout << "Finished ArrayNode testing in" << endl;
 //timer.displayTimerInformation();
 //testList();
-    testListTiming();
+   // testListTiming();
     //  testStack();
+    testMemeQueue();
     }
 

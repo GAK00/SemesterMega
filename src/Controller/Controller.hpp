@@ -18,7 +18,8 @@ private:
     void testAdvancedFeatures();
     void testList();
     void testListTiming();
-    void testStack();
+    void testNumberStack();
+    void testMemeQueue();
 public:
     Controller();
     void start();

@@ -6,16 +6,19 @@
 CPP_SRCS += \
 ../src/Model/IntNode.cpp \
 ../src/Model/IntNodeArray.cpp \
+../src/Model/Meme.cpp \
 ../src/Model/Timer.cpp 
 
 OBJS += \
 ./src/Model/IntNode.o \
 ./src/Model/IntNodeArray.o \
+./src/Model/Meme.o \
 ./src/Model/Timer.o 
 
 CPP_DEPS += \
 ./src/Model/IntNode.d \
 ./src/Model/IntNodeArray.d \
+./src/Model/Meme.d \
 ./src/Model/Timer.d 
 
 

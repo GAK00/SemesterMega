@@ -59,4 +59,16 @@ void Meme::setMainstream(bool main)
     {
     mainstream = main;
     }
+bool Meme:: operator < (Meme & compare)
+    {
+	if(this->isMainstream()&& compare.isMainstream())
+	    {
+		if(this->getDankness() < compare.getDankness())
+		    {
+		    return true;
+		    }
+		return false;
+	    }
+	return false;
+    }
 

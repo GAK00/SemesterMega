@@ -155,11 +155,14 @@ void Controller::testNumberStack()
 	cout << "size: " << stack.getSize() << endl;
 	stack.push(index);
 	}
+    stack.add(100);
     for (int index = 0; index < 100; index++)
 	{
 	cout << "size: " << stack.getSize() << endl;
 	cout << stack.pop() << endl;
+	cout<< "next" << stack.peek()<< endl;
 	}
+    stack.remove(100);
     cout << "end" << endl;
     }
 void Controller::testMemeQueue()

@@ -49,7 +49,7 @@ List<Type>::List(const List<Type> & source)
     {
     this->size = source.getSize();
     this->front = new Node<Type>();
-    for(int index = 1; index< size; index++)
+    for (int index = 1; index < size; index++)
 	{
 	Node<Type> * temp = new Node<Type>();
 	temp->setNextPointer(front);
@@ -57,19 +57,19 @@ List<Type>::List(const List<Type> & source)
 	}
     Node<Type> * copyTemp = source.getFront();
     Node<Type> * updated = this->front;
-    for(int index = 0; index < size; index++)
+    for (int index = 0; index < size; index++)
 	{
-	updated -> setNodeData(copyTemp->getNodeData());
+	updated->setNodeData(copyTemp->getNodeData());
 	updated = updated->getNextPointer();
 	copyTemp = copyTemp->getNextPointer();
 	}
-    this -> end = updated;
+    this->end = updated;
     }
 template<class Type>
 List<Type>::~List()
     {
     Node<Type> * destruction = front;
-    while(front != nullptr)
+    while (front != nullptr)
 	{
 	front = front->getNextPointer();
 	delete destruction;
@@ -180,7 +180,7 @@ Type List<Type>::remove(int index)
 	    }
 	}
     data = toRemove->getNodeData();
-    delete(toRemove);
+    delete (toRemove);
     size--;
     return data;
     }
@@ -193,7 +193,7 @@ Type List<Type>::setAtIndex(int index, Type value)
 	{
 	current = current->getNextPointer();
 	}
-    Type data  = current->getNodeData();
+    Type data = current->getNodeData();
     current->setNodeData(value);
     return data;
     }
@@ -215,25 +215,27 @@ bool List<Type>::contains(Type value)
     {
     bool valueContained = false;
     Node<Type> * current = front;
-    if(current->getNodeData() == value)
+    if (current->getNodeData() == value)
 	{
 	valueContained = true;
 	}
 
-    for(int index = 0; index<size; index++)
+    for (int index = 0; index < size; index++)
 	{
-	current = current->getNextPointer;
-	if(current->getNodeData() == value)
+
+	if (current->getNodeData() == value)
 	    {
 	    valueContained = true;
+	    return valueContained;
 	    }
+	current = current->getNextPointer;
 	}
-return valueContained;
+    return valueContained;
     }
 template<class Type>
 int List<Type>::getSize() const
     {
-	return size;
+    return size;
     }
 template<class Type>
 Node<Type>* List<Type>::getFront() const

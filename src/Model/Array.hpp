@@ -29,6 +29,7 @@ public:
     Node<Type> * getFront() const;
     Type getFromIndex(int index);
     void setAtIndex(int index, Type value);
+    int indexOf(Type value);
     };
 //cpp portion
 using namespace std;
@@ -126,5 +127,20 @@ void Array<Type>::setAtIndex(int index, Type value)
 	currentPos = currentPos->getNextPointer();
 	}
     currentPos->setNodeData(value);
+    }
+template <class Type>
+int Array<Type> :: indexOf(Type findMe)
+    {
+    int index = -1;
+    Node<Type> * search = this->getFront();
+    for(int spot = 0; spot < this->getSize(); spot++)
+	{
+	if(findMe == search->getNodeData())
+	    {
+		return spot;
+	    }
+	search = search->getNextPointer();
+	}
+    return index;
     }
 #endif /* MODEL_ARRAY_HPP_ */

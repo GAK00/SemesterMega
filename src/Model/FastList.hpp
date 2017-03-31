@@ -8,6 +8,7 @@
 #ifndef MODEL_FASTLIST_HPP_
 #define MODEL_FASTLIST_HPP_
 #include "DoubleList.hpp"
+#include <assert.h>
 template<class Type>
 class FastList: public DoubleList<Type>
     {
@@ -21,6 +22,8 @@ public:
     Type getFromIndex(int index);
     void setAtIndex(int index, Type value);
     void add(Type value);
+    int indexOf(Type value);
+    int indexOf(Type value, int start);
     };
 template<class Type>
 FastList<Type>::FastList() :
@@ -160,6 +163,41 @@ Type FastList<Type>::remove(int index)
     nodeToTakeOut->getNextPointer()->setPreviousPointer(nodeToTakeOut->getPreviousPointer());
     delete nodeToTakeOut;
     return derp;
+    }
+template <class Type>
+int FastList<Type> :: indexOf(Type findMe)
+    {
+    int index = -1;
+    BiDirectionalNode<Type> * search = this->getFront();
+    for(int spot = 0; spot < this->getSize(); spot++)
+	{
+	if(findMe == search->getNodeData())
+	    {
+		return spot;
+	    }
+	search = search->getNextPointer();
+	}
+    return index;
+    }
+template <class Type>
+int FastList<Type> :: indexOf(Type findMe, int start)
+    {
+    int index = -1;
+
+    BiDirectionalNode<Type> * search = this->getFront();
+    for(int spot = 0; spot<=start; spot++)
+	{
+	 search = search->getNextPointer();
+	}
+    for(int spot = start; spot < this->getSize(); spot++)
+	{
+	if(findMe == search->getNodeData())
+	    {
+		return spot;
+	    }
+	search = search->getNextPointer();
+	}
+    return index;
     }
 
 #endif /* MODEL_FASTLIST_HPP_ */

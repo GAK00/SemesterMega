@@ -28,6 +28,9 @@ public:
     void setDankness(int dank);
     void setHipsterQuotienet(double hipsterQuotient);
     void setMainstream(bool mainstream);
+    bool operator < (Meme & compare);
+    bool operator > ( Meme & compare);
+    bool operator == ( Meme & compare);
     };
 
 #endif /* MODEL_MEME_HPP_ */

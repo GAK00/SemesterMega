@@ -10,63 +10,82 @@
 #include "BinarySearchTreeNode.hpp"
 #include "Tree.hpp"
 template<class Type>
-class BinarySearchTree : public Tree<Type>
+class BinarySearchTree: public Tree<Type>
     {
-    private:
+private:
     BinarySearchTreeNode<Type> * root;
-    public:
+    int calculateSize(BinarySearchTreeNode<Type> * start);
+    void inOrderTraversal(BinarySearchTreeNode<Type> * root);
+    void preOrderTraversal(BinarySearchTreeNode<Type> * root);
+    void postOrderTraversal(BinarySearchTreeNode<Type> * root);
+public:
     BinarySearchTree();
     ~BinarySearchTree();
-    BinarySearchTreeNode<Type> * getRoot();
-    void setRoot(BinarySearchTreeNode<Type> * root);
-    void calculateSize(BinarySearchTreeNode<Type> * start);
-    void printToFile();
     void inOrderTraversal();
     void preOrderTraversal();
     void postOrderTraversal();
+    BinarySearchTreeNode<Type> * getRoot();
+    void setRoot(BinarySearchTreeNode<Type> * root);
+    void printToFile();
     };
-template <class Type>
-BinarySearchTree<Type> :: BinarySearchTree() : Tree<Type>()
+template<class Type>
+BinarySearchTree<Type>::BinarySearchTree() :
+	Tree<Type>()
     {
-	root = nullptr;
+    root = nullptr;
     }
 template<class Type>
-BinarySearchTree<Type> :: ~BinarySearchTree()
+BinarySearchTree<Type>::~BinarySearchTree()
     {
 
     }
 template<class Type>
-void BinarySearchTree<Type> :: printToFile()
+void BinarySearchTree<Type>::printToFile()
     {
 
     }
 template<class Type>
-void BinarySearchTree<Type> :: inOrderTraversal()
+void BinarySearchTree<Type>::inOrderTraversal()
     {
 
     }
 template<class Type>
-void BinarySearchTree<Type> :: preOrderTraversal()
+void BinarySearchTree<Type>::preOrderTraversal()
     {
 
     }
 template<class Type>
-void BinarySearchTree<Type> :: postOrderTraversal()
+void BinarySearchTree<Type>::postOrderTraversal()
     {
 
     }
-template <class Type>
-BinarySearchTreeNode<Type> * BinarySearchTree<Type> :: getRoot()
-{
+template<class Type>
+void BinarySearchTree<Type>::inOrderTraversal(BinarySearchTreeNode<Type> * root)
+    {
+
+    }
+template<class Type>
+void BinarySearchTree<Type>::preOrderTraversal(BinarySearchTreeNode<Type> * root)
+    {
+
+    }
+template<class Type>
+void BinarySearchTree<Type>::postOrderTraversal(BinarySearchTreeNode<Type> * root)
+    {
+
+    }
+template<class Type>
+BinarySearchTreeNode<Type> * BinarySearchTree<Type>::getRoot()
+    {
     return root;
-}
-template <class Type>
-void BinarySearchTree<Type> :: setRoot(BinarySearchTreeNode<Type> * root)
+    }
+template<class Type>
+void BinarySearchTree<Type>::setRoot(BinarySearchTreeNode<Type> * root)
     {
     this->root = root;
     }
 template<class Type>
-void BinarySearchTree<Type> :: calculateSize(BinarySearchTreeNode<Type> * start)
+int BinarySearchTree<Type>::calculateSize(BinarySearchTreeNode<Type> * start)
     {
 
     }

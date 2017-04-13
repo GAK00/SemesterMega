@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/Model/CrimeData.cpp \
+../src/Model/FileController.cpp \
 ../src/Model/IntNode.cpp \
 ../src/Model/IntNodeArray.cpp \
 ../src/Model/Meme.cpp \
@@ -12,6 +13,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./src/Model/CrimeData.o \
+./src/Model/FileController.o \
 ./src/Model/IntNode.o \
 ./src/Model/IntNodeArray.o \
 ./src/Model/Meme.o \
@@ -19,6 +21,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./src/Model/CrimeData.d \
+./src/Model/FileController.d \
 ./src/Model/IntNode.d \
 ./src/Model/IntNodeArray.d \
 ./src/Model/Meme.d \

@@ -8,7 +8,10 @@ src/Controller/Controller.o: ../src/Controller/Controller.cpp \
   ../src/Controller/../model/BiDirectionalNode.hpp \
   ../src/Controller/../Model/Queue.hpp \
   ../src/Controller/../Model/FastList.hpp \
-  ../src/Controller/../Model/Meme.hpp
+  ../src/Controller/../Model/Meme.hpp \
+  ../src/Controller/../Model/BinarySearchTree.hpp \
+  ../src/Controller/../model/BinarySearchTreeNode.hpp \
+  ../src/Controller/../model/Tree.hpp
 
 ../src/Controller/Controller.hpp:
 
@@ -31,3 +34,9 @@ src/Controller/Controller.o: ../src/Controller/Controller.cpp \
 ../src/Controller/../Model/FastList.hpp:
 
 ../src/Controller/../Model/Meme.hpp:
+
+../src/Controller/../Model/BinarySearchTree.hpp:
+
+../src/Controller/../model/BinarySearchTreeNode.hpp:
+
+../src/Controller/../model/Tree.hpp:

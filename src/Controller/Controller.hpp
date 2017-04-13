@@ -20,6 +20,7 @@ private:
     void testListTiming();
     void testNumberStack();
     void testMemeQueue();
+    void testBSTree();
 public:
     Controller();
     void start();

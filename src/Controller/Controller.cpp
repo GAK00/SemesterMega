@@ -15,6 +15,7 @@
 #include"../Model/Queue.hpp"
 #include "../Model/FastList.hpp"
 #include "../Model/Meme.hpp"
+#include "../Model/BinarySearchTree.hpp"
 using namespace std;
 
 Controller::Controller()
@@ -183,7 +184,18 @@ void Controller::testMemeQueue()
 	cout<< meme.getTitle() <<" dankness level " << meme.getDankness()<<endl;
 	}
     }
-
+void Controller::testBSTree()
+    {
+    BinarySearchTree<int> toTest;
+    toTest.insert(3);
+    toTest.insert(1);
+    toTest.insert(0);
+    toTest.insert(2);
+    toTest.insert(4);
+    toTest.insert(5);
+    //toTest.remove(3);
+    toTest.postOrderTraversal();
+    }
 void Controller::start()
     {
 //Timer timer = Timer();
@@ -205,6 +217,7 @@ void Controller::start()
 //testList();
 // testListTiming();
 //  testStack();
-    testMemeQueue();
+   // testMemeQueue();
+    testBSTree();
     }
 

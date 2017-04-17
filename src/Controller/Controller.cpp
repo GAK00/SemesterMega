@@ -110,7 +110,7 @@ void Controller::testListTiming()
 	Timer fastTimer;
 	for (int index = 0; index < dataCollection; index++)
 	    {
-	    int randomIndex = (rand() % (listSize * (100-weight) / 100)) + (listSize * (weight)) / 100;
+	    int randomIndex = (rand() % (listSize * (100 - weight) / 100)) + (listSize * (weight)) / 100;
 	    fastTimer.startTimer();
 	    timingList.getFromIndex(randomIndex);
 	    fastTimer.stopTimer();
@@ -161,7 +161,7 @@ void Controller::testNumberStack()
 	{
 	cout << "size: " << stack.getSize() << endl;
 	cout << stack.pop() << endl;
-	cout<< "next" << stack.peek()<< endl;
+	cout << "next" << stack.peek() << endl;
 	}
     stack.remove(100);
     cout << "end" << endl;
@@ -170,31 +170,52 @@ void Controller::testMemeQueue()
     {
     Meme firstMeme("doggo");
     Queue<Meme> memeQueue;
-    cout<<"queueing " <<firstMeme.getTitle()<<endl;
+    cout << "queueing " << firstMeme.getTitle() << endl;
     memeQueue.add(firstMeme);
     Meme secondMeme("doggo on fire");
     secondMeme.setDankness(9001);
-    cout<<"queueing " <<secondMeme.getTitle()<<endl;
+    cout << "queueing " << secondMeme.getTitle() << endl;
     memeQueue.enqueue(secondMeme);
-    cout<<"reading queue"<<endl;
+    cout << "reading queue" << endl;
     int size = memeQueue.getSize();
-    for(int index = 0; index<size; index++)
+    for (int index = 0; index < size; index++)
 	{
 	Meme meme = memeQueue.dequeue();
-	cout<< meme.getTitle() <<" dankness level " << meme.getDankness()<<endl;
+	cout << meme.getTitle() << " dankness level " << meme.getDankness() << endl;
 	}
     }
 void Controller::testBSTree()
     {
-    BinarySearchTree<int> toTest;
-    toTest.insert(3);
-    toTest.insert(1);
-    toTest.insert(0);
-    toTest.insert(2);
-    toTest.insert(4);
-    toTest.insert(5);
-    //toTest.remove(3);
-    toTest.postOrderTraversal();
+    BinarySearchTree<int> numbers;
+
+    numbers.insert(9843);
+
+    numbers.insert(10);
+
+    numbers.insert(43);
+
+    numbers.insert(-123);
+
+    numbers.insert(23465);
+
+    numbers.insert(10); // won't go in
+
+    numbers.insert(43243);
+
+    numbers.insert(-45677654);
+
+    numbers.insert(92165);
+    numbers.remove(43243);
+
+    cout << "Size should be 8 and is: " << numbers.getSize() << endl;
+
+    cout << "In order traversal should be: \n\t-45677654 \n\t-123 \n\t10 \n\t43 \n\t9843 \n\t23465 \n\t43243 \n\t92165" << endl;
+
+    numbers.inOrderTraversal();
+
+    cout << "Height should be 4 and is: " << numbers.getHeight() << endl;
+
+    cout << "Balanced should be false || 0 and is: " << numbers.isBalanced() << endl;
     }
 void Controller::start()
     {
@@ -217,7 +238,7 @@ void Controller::start()
 //testList();
 // testListTiming();
 //  testStack();
-   // testMemeQueue();
+    // testMemeQueue();
     testBSTree();
     }
 

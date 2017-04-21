@@ -6,6 +6,7 @@
  *      Author: gkun9931
  */
 #include "FileController.hpp"
+#include "CrimeData.hpp"
   FastList<Meme> readDataFromFileAsList(string filename)
       {
 	  FastList<Meme> dataSource;
@@ -67,4 +68,67 @@
 	      {
 	      cerr << "FILE UNAVAILABLE"<<endl;
 	      }
+
       }
+  BinarySearchTree<CrimeData> FileController :: readCrimeDataToBinarySearchTree(string filename)
+
+  {
+
+      BinarySearchTree<CrimeData> crimeData;
+
+
+
+      string currentCSVLine;
+
+      int rowCount = 0;
+
+
+
+	  ifstream dataFile(filename);
+
+	  if(dataFile.is_open())
+	      {
+	      while(!dataFile.eof())
+		  {
+
+              getline(dataFile, currentCSVLine, '\r');
+
+
+
+              //Exclude first row headers
+
+              if (rowCount != 0)
+
+              {
+
+                  CrimeData rowData(currentCSVLine);
+
+                  crimeData.insert(rowData);
+
+              }
+
+              rowCount++;
+
+          }
+          cout<<rowCount<<endl;
+          cout<<dataFile.eof();
+          dataFile.close();
+
+      }
+
+      else
+
+      {
+
+          cerr << "NO FILE" << endl;
+
+      }
+
+
+
+
+
+      return crimeData;
+
+  }
+

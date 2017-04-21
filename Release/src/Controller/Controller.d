@@ -11,7 +11,9 @@ src/Controller/Controller.o: ../src/Controller/Controller.cpp \
   ../src/Controller/../Model/Meme.hpp \
   ../src/Controller/../Model/BinarySearchTree.hpp \
   ../src/Controller/../model/BinarySearchTreeNode.hpp \
-  ../src/Controller/../model/Tree.hpp
+  ../src/Controller/../model/Tree.hpp \
+  ../src/Controller/../Model/CrimeData.hpp \
+  ../src/Controller/../Model/FileController.hpp
 
 ../src/Controller/Controller.hpp:
 
@@ -40,3 +42,7 @@ src/Controller/Controller.o: ../src/Controller/Controller.cpp \
 ../src/Controller/../model/BinarySearchTreeNode.hpp:
 
 ../src/Controller/../model/Tree.hpp:
+
+../src/Controller/../Model/CrimeData.hpp:
+
+../src/Controller/../Model/FileController.hpp:

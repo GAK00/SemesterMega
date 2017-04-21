@@ -39,7 +39,7 @@ private:
     int year;
 public:
     CrimeData();
-    
+    CrimeData(string currentCSVLine);
     string getDepartment() const;
     int getPopulation() const;
     double getAllPropertyRates() const;
@@ -62,7 +62,7 @@ public:
     int getAllRape() const;
     int getAllRobbery() const;
     int getYear() const;
-    
+    friend ostream & operator << (ostream &outputStream, const CrimeData & outputData);
     void setDepartment(const string & department);
     void setPopulation(const int & population);
     void setAllPropertyRates(const double & property);

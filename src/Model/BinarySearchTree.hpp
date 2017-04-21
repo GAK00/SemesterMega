@@ -30,6 +30,8 @@ public:
     void inOrderTraversal();
     void preOrderTraversal();
     void postOrderTraversal();
+    Type findMinimum();
+    Type findMaximum();
     BinarySearchTreeNode<Type> * getRoot();
     void setRoot(BinarySearchTreeNode<Type> * root);
     void insert(Type value);
@@ -355,5 +357,25 @@ template<class Type>
 bool BinarySearchTree<Type>::isBalanced()
     {
     return isBalanced(root);
+    }
+template<class Type>
+Type BinarySearchTree<Type> :: findMinimum()
+{
+    BinarySearchTreeNode<Type> * temp = root;
+    while(temp ->getLeftChild()!= nullptr)
+	{
+	temp = temp->getLeftChild();
+	}
+    return temp->getNodeData();
+}
+template<class Type>
+Type BinarySearchTree<Type> :: findMaximum()
+    {
+    BinarySearchTreeNode<Type> * temp = root;
+    while(temp -> getRightChild()!=nullptr)
+	{
+	temp = temp->getRightChild();
+	}
+    return temp->getNodeData();
     }
 #endif /* MODEL_BINARYSEARCHTREE_HPP_ */

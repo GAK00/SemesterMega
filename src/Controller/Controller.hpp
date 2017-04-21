@@ -21,6 +21,7 @@ private:
     void testNumberStack();
     void testMemeQueue();
     void testBSTree();
+    void testBSTreeWCrime();
 public:
     Controller();
     void start();

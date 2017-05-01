@@ -361,6 +361,7 @@ bool BinarySearchTree<Type>::isBalanced()
 template<class Type>
 Type BinarySearchTree<Type> :: findMinimum()
 {
+    assert(root != nullptr);
     BinarySearchTreeNode<Type> * temp = root;
     while(temp ->getLeftChild()!= nullptr)
 	{
@@ -371,6 +372,7 @@ Type BinarySearchTree<Type> :: findMinimum()
 template<class Type>
 Type BinarySearchTree<Type> :: findMaximum()
     {
+    assert(root != nullptr);
     BinarySearchTreeNode<Type> * temp = root;
     while(temp -> getRightChild()!=nullptr)
 	{

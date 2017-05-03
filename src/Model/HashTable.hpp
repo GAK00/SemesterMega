@@ -39,7 +39,9 @@ HashTable<Type>::HashTable()
     this->capacity = 101;
     this->efficiencyPercentage = 0.667;
     this->size = 0;
-storage= HashNode<Type>* [capacity];
+storage= new HashNode<Type>* [capacity];
+    fill_n(storage,capacity,nullptr);
+
 }
 template<class Type>
 HashTable<Type>::~HashTable()
@@ -165,14 +167,29 @@ for (long index = 0; index < oldCapacity; index++)
 	else
 	    {
 		long updatedPosition = handleCollision(temp, pos);
-		while(tempStorage[updatedPosition] != nullptr)
-		    {
-		    updatedPosition = handleCollision(temp, updatedPosition);
-		    }
 		tempStorage[updatedPosition] = temp;
 	    }
 	}
     }
 storage = tempStorage;
 }
+template<class Type>
+void HashTable<Type> :: add(Type toAdd)
+    {
+    this -> size++;
+    if(((size*1.000)/capacity)>efficiencyPercentage)
+	    {
+		resize();
+	    }
+    HashNode<Type>  * temp;
+    int pos = findPosition(temp);
+    if(storage[pos] == nullptr)
+	{
+	storage[pos] = temp;
+	}
+    else
+	{
+	storage[hadleCollision(temp,pos)] = temp;
+	}
+    }
 #endif /* MODEL_HASHTABLE_HPP_ */

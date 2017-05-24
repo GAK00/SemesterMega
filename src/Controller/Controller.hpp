@@ -22,6 +22,7 @@ private:
     void testMemeQueue();
     void testBSTree();
     void testBSTreeWCrime();
+    void testGraph();
 public:
     Controller();
     void start();

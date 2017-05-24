@@ -18,6 +18,7 @@
 #include "../Model/BinarySearchTree.hpp"
 #include "../Model/CrimeData.hpp"
 #include "../Model/FileController.hpp"
+#include "../Model/Graph.hpp"
 using namespace std;
 
 Controller::Controller()
@@ -189,7 +190,6 @@ void Controller::testMemeQueue()
 void Controller::testBSTree()
     {
     BinarySearchTree<int> numbers;
-
     cout << "Size should be 0 and is: " << numbers.getSize() << endl;
     numbers.insert(9843);
 
@@ -252,6 +252,34 @@ void Controller::testBSTreeWCrime()
 
         treeTimer.displayTimerInformation();
     }
+void Controller::testGraph()
+    {
+	Graph<string> family;
+	family.addVertex("me");
+	family.addVertex("sarah");
+	family.addEdge(0, 1);
+	family.addEdge(1, 0);
+	family.addVertex("heather");
+	family.addEdge(0, 2);
+	family.addEdge(1, 2);
+	family.addEdge(2, 0);
+	family.addEdge(2, 1);
+	family.addVertex("dad");
+	family.addEdge(3, 0);
+	family.addEdge(3, 1);
+	family.addEdge(3, 2);
+	family.addVertex("mom");
+	family.addEdge(4, 3);
+	family.addEdge(3, 4);
+	family.addEdge(4, 0);
+	family.addEdge(4, 1);
+	family.addEdge(4, 2);
+	cout << "breadth" <<endl;
+	family.breadthFirstTraversal(family, 4);
+	cout << "depth" << endl;
+	family.depthFirstTraversal(family, 4);
+
+    }
 void Controller::start()
     {
 //Timer timer = Timer();
@@ -274,7 +302,8 @@ void Controller::start()
 // testListTiming();
 //  testStack();
     // testMemeQueue();
-    testBSTree();
+    //testBSTree();
+    testGraph();
    // testBSTreeWCrime();
       {
 
